@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Produtos</title>
+  <style>
+    body {
+      background-color: navy;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #form-container {
+      background-color: #001f3f;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #39b54a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2f8e3c;
+    }
+
+    #message-container {
+      display: none;
+      background-color: #001f3f;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      text-align: center;
+    }
+
+    #ok-button {
+      background-color: #39b54a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #ok-button:hover {
+      background-color: #2f8e3c;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="form-container">
+    <h1>Cadastro de Produtos</h1>
+    <label for="produto">Produto:</label>
+    <input type="text" id="produto" required>
+
+    <label for="fornecedor">Fornecedor:</label>
+    <input type="text" id="fornecedor" required>
+
+    <label for="categoria">Categoria:</label>
+    <input type="text" id="categoria" required>
+
+    <label for="valor">Valor Unitário:</label>
+    <div style="position: relative;">
+      <input type="text" id="valor" required>
+    </div>
+
+    <label>Notificar Venda?</label>
+    <select id="notificar">
+      <option value="sim">SIM</option>
+      <option value="nao">NÃO</option>
+    </select>
+
+    <button onclick="registrarProduto()">Registrar Produto</button>
+  </div>
+
+  <div id="message-container">
+    <p>Produto Cadastrado com Sucesso!</p>
+    <button id="ok-button" onclick="fecharMensagem()">OK</button>
+  </div>
+
+  <script>
+    function registrarProduto() {
+      // Aqui você pode adicionar a lógica para enviar os dados para o servidor, se necessário.
+
+      // Exibindo a mensagem de sucesso
+      document.getElementById("form-container").style.display = "none";
+      document.getElementById("message-container").style.display = "block";
+    }
+
+    function fecharMensagem() {
+      // Resetando o formulário e escondendo a mensagem
+      document.getElementById("form-container").style.display = "block";
+      document.getElementById("message-container").style.display = "none";
+
+      // Limpando os campos do formulário
+      document.getElementById("produto").value = "";
+      document.getElementById("fornecedor").value = "";
+      document.getElementById("categoria").value = "";
+      document.getElementById("valor").value = "";
+      document.getElementById("notificar").value = "sim";
+    }
+  </script>
+
+</body>
+
+</html>
